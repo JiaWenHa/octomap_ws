@@ -1,0 +1,7 @@
+<launch>
+    <!-- 保存二维栅格地图数据 -->
+    <arg name="filename" value="$(find pointcloud_publisher)/map/nav" />
+    <node name="map_save" pkg="map_server" type="map_saver" args="-f $(arg filename)" >
+        <remap from="map" to="projected_map" />
+    </node>
+</launch>
