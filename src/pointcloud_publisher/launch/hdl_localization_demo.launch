@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <!-- 增加的定位 -->
+  <include file="$(find hdl_localization)/launch/hdl_localization.launch" />
+
+  <node name="pointcloud_publisher" pkg="pointcloud_publisher" type="pointcloud_publisher" output="screen">
+	<param name="path" value="$(find pointcloud_publisher)/data/scans.pcd" type="str" />
+	<param name="frame_id" value="map" type="str" />
+	<param name="topic" value="/pointcloud/output" type="str" />
+	<param name="hz" value="2" type="int" />
+  </node>
+
+  <!-- Load ocotmap launch -->
+  <include file="$(find pointcloud_publisher)/launch/octomaptransform.launch" />
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster" args="0 0 0 0 0 0 map odom 100" /> -->
+
+  <!-- RViz -->
+  <!-- <node pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen" args="-d $(find pointcloud_publisher)/rviz/OctomapShow.rviz"/> -->
+</launch>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+    <!-- 3D雷达点云转scan -->
+    <include file="$(find pointcloud_to_laserscan)/launch/velodyne_to_scan.launch" />
+    <!-- 设置地图的配置文件，运行地图服务器，并且加载设置的地图 -->
+    <include file="$(find pointcloud_publisher)/launch/map_read.launch" />
+    <!-- 启动定位节点 -->
+    <include file="$(find hdl_localization)/launch/hdl_localization_no_rviz.launch" />
+    <!--- Run Move Base -->
+    <include file="$(find husky_navigation)/launch/move_base.launch" />
+    <!-- rviz -->
+    <include file="$(find husky_viz)/launch/view_myrobot.launch" />
+</launch>

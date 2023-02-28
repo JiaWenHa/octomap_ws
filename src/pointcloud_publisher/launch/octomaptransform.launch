@@ -3,7 +3,7 @@
   <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
 
     <!-- resolution in meters per pixel 最小像素（体素）分辨率 -->
-    <param name="resolution" value="0.10" />
+    <param name="resolution" value="0.05" />
 
     <!-- name of the fixed frame, needs to be "/map" for SLAM -->
     <param name="frame_id" type="string" value="map" />
@@ -14,7 +14,7 @@
 
     <!-- max/min height for occupancy map, should be in meters -->
     <param name="pointcloud_min_z" value="0" />
-    <param name="pointcloud_max_z" value="3" />
+    <param name="pointcloud_max_z" value="1" />
 
     <param name="filter_speckles" type="bool" value="true" />
 

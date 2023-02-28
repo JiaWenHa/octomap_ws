@@ -1,0 +1,20 @@
+# 机器人几何参数，如果机器人是圆形，设置 robot_radius, 如果是其他形状设置 footprint
+robot_radius: 1 # 圆形
+# footprint: [[-0.12, -0.12], [-0.12, 0.12], [0.12, 0.12], [0.12,-0.12]] # 其他形状
+
+
+obstacle_range: 2.5 # 设置机器人检测障碍物的最大距离
+raytrace_range: 3.0 # 设置机器人检测自由空间的最大范围
+
+# 膨胀半径，扩展在碰撞区域以外的代价区域，使得机器人规划路径避开障碍物
+# 这个参数表示机器人路径规划应与机器人保持1m以上的安全距离
+inflation_radius: 0.5
+# 代价比例系数，越大则代价越小
+cost_scaling_factor: 3.0
+
+# 地图类型
+map_type: costmap
+# 导航所需要的传感器
+observation_sources: scan
+# 对传感器的坐标系和数据进行配置。这个也会用于代价地图添加和清除障碍物。例如，你可以用激光雷达传感器用于在代价地图添加障碍物，再添加kinect用于导航和清除障碍物
+scan: {sensor_frame: velodyne, data_type: LaserScan, topic: scan, marking: true, clearing: true}

@@ -1,0 +1,32 @@
+TrajectoryPlannerROS:
+
+# Robot Configuration Parameters
+  max_vel_x: 1.0 # x 方向最大速度
+  min_vel_x: -1.0 # x 方向最小速度，如果为负值表示可以后退
+
+  max_vel_theta:  1.0 # 基座允许的最大角速度
+  min_vel_theta: -1.0 # 基座允许的最小角速度
+  min_in_place_vel_theta: 0.4 # 原地旋转时，基座允许的最小角速度
+
+  acc_lim_x: 1.0 # x 加速限制
+  acc_lim_y: 0.0 # Y 加速限制
+  acc_lim_theta: 1.0 # 角速度加速限制
+
+  # latch_xy_goal_tolerance如果目标位置被锁定，当机器人到达目标 xy 位置后，它将旋转到位，即使误差没有达到，它也会做旋转
+  latch_xy_goal_tolerance: false
+  pdist_scale: 0.8 # 控制器距离给定的路径有多近的加权值
+  gdist_scale: 0.4 # 控制器试图达到局部目标，或者是控制速度的加权值
+
+# Goal Tolerance Parameters 目标公差
+  xy_goal_tolerance: 0.10 # 大约6度，表示当到达目标时控制器的偏航/旋转误差
+  yaw_goal_tolerance: 0.05 # 5cm，到达目标时，控制器在x y上的位置误差
+
+# Differential-drive robot configuration 是否是全向移动机器人
+  holonomic_robot: false
+
+# Forward Simulation Parameters 前进模拟参数
+  sim_time: 1.0 # 轨迹模拟时间
+  vx_samples: 18 # x方向速度空间的采样点数
+  vtheta_samples: 20 # 旋转方向速度空间的采样点数
+  sim_granularity: 0.05 #布长，轨迹上采样点之间的距离，轨迹上点的密集程度
+  dwa: true # 是否用DWA模式
