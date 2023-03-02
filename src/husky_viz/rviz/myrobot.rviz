@@ -6,12 +6,12 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Sensing1
         - /Sensing1/Odometry1
         - /Sensing1/Odometry1/Shape1
         - /Sensing1/Odometry1/Covariance1
         - /Navigation1
         - /Navigation1/Exploration1
+        - /PointCloud21
       Splitter Ratio: 0.49492400884628296
     Tree Height: 605
   - Class: rviz/Selection
@@ -81,16 +81,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        front_laser:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_laser_mount:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         front_left_wheel_link:
           Alpha: 1
           Show Axes: false
@@ -143,6 +133,35 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         user_rail_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        velodyne:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        velodyne_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        vlp16_mount_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        vlp16_mount_left_support:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        vlp16_mount_plate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        vlp16_mount_right_support:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -400,11 +419,39 @@ Visualization Manager:
           Value: true
       Enabled: true
       Name: Navigation
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.05000000074505806
+      Style: Flat Squares
+      Topic: /globalmap
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -426,7 +473,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 13.54759693145752
+      Distance: 24.093454360961914
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -434,17 +481,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.08612212538719177
-        Y: 0.9994586706161499
-        Z: -1.6604547500610352
+        X: 6.199239730834961
+        Y: 4.161223888397217
+        Z: -3.310196876525879
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5647963285446167
+      Pitch: 1.5047963857650757
       Target Frame: <Fixed Frame>
-      Yaw: 6.255401134490967
+      Yaw: 5.930394649505615
     Saved: ~
 Window Geometry:
   Displays:
@@ -463,4 +510,4 @@ Window Geometry:
     collapsed: false
   Width: 1600
   X: 155
-  Y: 195
+  Y: 158

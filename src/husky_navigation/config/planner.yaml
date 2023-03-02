@@ -1,5 +1,5 @@
 controller_frequency: 5.0 # 向底盘控制移动话题 cmd_vel 发送命令的频率
-recovery_behaviour_enabled: true
+recovery_behaviour_enabled: fasle
 
 NavfnROS:
   # 是否允许规划器规划穿过未知区域的路径，只设计该参数为true还不行，还要设置track_unkown_space参数也为true才行

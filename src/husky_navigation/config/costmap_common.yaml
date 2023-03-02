@@ -19,8 +19,8 @@ static:
 # 障碍地图层，用于动态的记录传感器感知的障碍物信息
 obstacles_laser:
     observation_sources: laser
-    laser: {sensor_frame: velodyne, data_type: LaserScan, clearing: true, marking: true, topic: front/scan, inf_is_valid: true}
+    laser: {sensor_frame: velodyne, data_type: LaserScan, clearing: true, marking: true, topic: /front/scan, inf_is_valid: true}
 # 膨胀层，在静态地图层和障碍地图层上进行膨胀，以避免机器人的外壳撞上障碍物
 inflation:
     # 膨胀半径，扩展在碰撞区域以外的代价区域，使得机器人规划路径避开障碍物
-    inflation_radius: 1.0
+    inflation_radius: 0.1

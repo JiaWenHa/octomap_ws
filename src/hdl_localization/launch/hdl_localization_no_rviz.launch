@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <launch>
   <!-- 将需要在命令行中输入的参数放到launch文件中 -->
-  <param name="/use_sim_time" value="true" />
+  <param name="/use_sim_time" value="false" />
 
   <!-- arguments -->
   <!-- 一个nodelet_manager进程，可以加载一个或者多个nodelet -->
-  <arg name="nodelet_manager" default="velodyne_nodelet_manager" />
+  <arg name="nodelet_manager" default="nodelet_manager" />
   <!-- <arg name="points_topic" default="/velodyne_points" /> -->
-  <arg name="points_topic" default="/points" />
+  <arg name="points_topic" default="/velodyne_points" />
 
   <!-- input clouds are transformed in odom_child_frame, and then localization is performed in that frame -->
   <!-- this is useful to match the LIDAR and IMU coodinate systems -->
@@ -15,7 +15,7 @@
 
   <!-- optional arguments -->
 
-  <arg name="use_imu" default="true" />
+  <arg name="use_imu" default="false" />
   <arg name="invert_imu_acc" default="false" />
   <arg name="invert_imu_gyro" default="false" />
   <arg name="use_global_localization" default="false" /> //default: true
@@ -24,7 +24,7 @@
   <arg name="robot_odom_frame_id" value="odom" />
   <arg name="plot_estimation_errors" value="false" />
 
-  <!-- hdl_global_localization的内容暂步研究，主要是用于生成栅格地图的 -->
+  <!-- hdl_global_localization的内容暂步研究，主要是用于生成栅格地图的 -->/
   <!-- if=value(optional) 如果value值为true，包括标签和内容。 -->
   <include file="$(find hdl_global_localization)/launch/hdl_global_localization.launch" if="$(arg use_global_localization)" />
 
@@ -37,7 +37,7 @@
   <!-- globalmap_server_nodelet -->
   <node pkg="nodelet" type="nodelet" name="globalmap_server_nodelet" args="load hdl_localization/GlobalmapServerNodelet $(arg nodelet_manager)">
     <!-- <param name="globalmap_pcd" value="$(find hdl_localization)/data/map.pcd" /> -->
-    <param name="globalmap_pcd" value="$(find pointcloud_publisher)/data/scans.pcd" />
+    <param name="globalmap_pcd" value="$(find pointcloud_publisher)/data/map.pcd" />
     <param name="convert_utm_to_local" value="true" />
     <param name="downsample_resolution" value="0.1" />
   </node>
@@ -81,5 +81,6 @@
 
     <param name="use_global_localization" value="$(arg use_global_localization)" />
   </node>
+
 
 </launch>
