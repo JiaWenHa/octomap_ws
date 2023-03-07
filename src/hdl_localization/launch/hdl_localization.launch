@@ -15,7 +15,7 @@
 
   <!-- optional arguments -->
 
-  <arg name="use_imu" default="true" />
+  <arg name="use_imu" default="fa" />
   <arg name="invert_imu_acc" default="false" />
   <arg name="invert_imu_gyro" default="false" />
   <arg name="use_global_localization" default="false" /> //default: true

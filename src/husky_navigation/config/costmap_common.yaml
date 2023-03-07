@@ -23,4 +23,4 @@ obstacles_laser:
 # 膨胀层，在静态地图层和障碍地图层上进行膨胀，以避免机器人的外壳撞上障碍物
 inflation:
     # 膨胀半径，扩展在碰撞区域以外的代价区域，使得机器人规划路径避开障碍物
-    inflation_radius: 0.1
+    inflation_radius: 0.25

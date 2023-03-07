@@ -9,21 +9,23 @@
         <remap from="scan" to="front/scan"/>
         <rosparam>
             # target_frame: rslidar # Leave disabled to output scan in pointcloud frame
-            transform_tolerance: 0.01
+            transform_tolerance: 0.1
             <!-- 这两个参数用来指定这段z轴高度范围内的输入点云将参与转换，范围外的不参与 -->
-            min_height: -0.05
+            min_height: -0.3
             max_height: 0.5
 
             <!-- 这两个参数用来指定这段yaw角度范围内的输入点云将参与转换，范围外的不参与 -->
-            angle_min: -3.1415926 # -M_PI
-            angle_max: 3.1415926 # M_PI
+            <!-- angle_min: -3.1415926 # -M_PI -->
+            <!-- angle_max: 3.1415926 # M_PI -->
+            angle_min: -2.5 # -M_PI
+            angle_max: 2.5 # M_PI
             <!-- 输出的2d雷达数据的角分辨率，即相邻扫描点的角度增量 -->
             angle_increment: 0.003 # 0.17degree
             <!-- 扫描时间，即话题的发布周期 -->
-            scan_time: 0.1
+            scan_time: 0.01
             <!-- 这两个参数用来指定输出数据的有效距离，即2d雷达的有效测量范围 -->
             range_min: 0.0
-            range_max: 100
+            range_max: 8
             use_inf: true
             inf_epsilon: 1.0
 
@@ -31,7 +33,7 @@
             # 0 : Detect number of cores
             # 1 : Single threaded
             # 2->inf : Parallelism level
-            concurrency_level: 1
+            concurrency_level: 2
         </rosparam>
 
     </node>

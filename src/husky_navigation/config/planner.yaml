@@ -1,11 +1,11 @@
-controller_frequency: 5.0 # 向底盘控制移动话题 cmd_vel 发送命令的频率
+controller_frequency: 10.0 # 向底盘控制移动话题 cmd_vel 发送命令的频率
 recovery_behaviour_enabled: fasle
 
 NavfnROS:
   # 是否允许规划器规划穿过未知区域的路径，只设计该参数为true还不行，还要设置track_unkown_space参数也为true才行
   allow_unknown: true # Specifies whether or not to allow navfn to create plans that traverse unknown space.
   # 当设置的目的地被障碍物占据时，需要以该参数为半径找到最近的点作为新的目标地点
-  default_tolerance: 0.1 # A tolerance on the goal point for the planner.
+  default_tolerance: 0.5 # A tolerance on the goal point for the planner. default:0.1
 
 TrajectoryPlannerROS:
   # Robot Configuration Parameters
@@ -13,11 +13,11 @@ TrajectoryPlannerROS:
   acc_lim_theta:  3.2 # 旋转加速度的绝对值
 
   max_vel_x: 1.0 # x方向最大速度的绝对值
-  min_vel_x: 0.0 # x方向最小速度绝对值，如果为负值表示后退
+  min_vel_x: -1.0 # x方向最小速度绝对值，如果为负值表示后退 default:0
 
   max_vel_theta: 1.0 # 最大旋转速度的绝对值
-  min_vel_theta: -1.0 # 最小旋转速度的绝对值
-  min_in_place_vel_theta: 0.2 # 原地最大角速度
+  min_vel_theta: -1.0 # 最小旋转速度的绝对值 
+  min_in_place_vel_theta: 0.1 # 原地最大角速度 default: 0.2
 
   holonomic_robot: false # 是否为全向机器人
   escape_vel: -0.1 # 逃逸速度，必须是负值，这个速度可以理解为机器人陷入死胡同的回退速度
@@ -38,7 +38,7 @@ TrajectoryPlannerROS:
   vx_samples: 6
   vtheta_samples: 20
   # 控制器更新频率，一般设为3～5之间，越高对计算机负载要求越高
-  controller_frequency: 20.0
+  controller_frequency: 5.0
 
   # Trajectory scoring parameters
   # 计算系数时统一 pdist_scale,gdist_scale的单位为米，一般都是true ,false时单位为cells
@@ -77,13 +77,35 @@ DWAPlannerROS:
 
   max_vel_trans: 0.5
   min_vel_trans: 0.1
-  max_vel_rot: 1.0
-  min_vel_rot: 0.2
+  max_vel_rot: 0.2
+  min_vel_rot: 0.1
+  min_in_place_vel_theta: 0.1 # 原地最大角速度 default: 0.2
 
   # Goal Tolerance Parameters
   yaw_goal_tolerance: 0.1
   xy_goal_tolerance: 0.2
   latch_xy_goal_tolerance: false
+
+# DWAPlannerROS:
+#   # Robot configuration parameters  
+#   acc_lim_x: 2.5
+#   acc_lim_y: 0
+#   acc_lim_th: 3.2
+
+#   max_vel_x: 0.5
+#   min_vel_x: 0.0
+#   max_vel_y: 0
+#   min_vel_y: 0
+
+#   max_vel_trans: 0.5
+#   min_vel_trans: 0.1
+#   max_vel_rot: 1.0
+#   min_vel_rot: 0.2
+
+#   # Goal Tolerance Parameters
+#   yaw_goal_tolerance: 0.1
+#   xy_goal_tolerance: 0.2
+#   latch_xy_goal_tolerance: false
 
   # # Forward Simulation Parameters
   # sim_time: 2.0
