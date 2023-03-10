@@ -1,0 +1,29 @@
+footprint: [[-0.5, -0.33], [-0.5, 0.33], [0.5, 0.33], [0.5, -0.33]]
+footprint_padding: 0.01
+
+obstacle_layer:
+  enabled: true
+  max_obstacle_height: 1.0
+  min_obstacle_height: 0.5
+  combination_method: 1
+  track_unkown_space: true
+  obstacle_range: 2.5
+  raytrace_range: 4.0
+  publish_voxel_map: false
+  observation_sources: scan
+  scan:
+    data_type: LaserScan
+    sensor_frame: velodyne
+    topic: "front/scan"
+    marking: true
+    clearing: true
+    inf_is_valid: true
+  
+inflation_layer:
+  enabled: true
+  cost_scaling_factor: 10.0
+  inflation_radius: 0.25
+
+static_layer:
+  enabled: true
+  map_topic: "/map"
