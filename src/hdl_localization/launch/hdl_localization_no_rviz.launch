@@ -38,7 +38,7 @@
   <node pkg="nodelet" type="nodelet" name="globalmap_server_nodelet" args="load hdl_localization/GlobalmapServerNodelet $(arg nodelet_manager)">
     <!-- <param name="globalmap_pcd" value="$(find hdl_localization)/data/map.pcd" /> -->
     <!-- <param name="globalmap_pcd" value="$(find pointcloud_publisher)/data/map.pcd" /> -->
-    <param name="globalmap_pcd" value="$(find pointcloud_publisher)/data/scans_2023_3_4.pcd" />
+    <param name="globalmap_pcd" value="$(find pointcloud_publisher)/data/scans.pcd" />
 
     <param name="convert_utm_to_local" value="true" />
     <param name="downsample_resolution" value="0.1" />

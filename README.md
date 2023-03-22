@@ -13,13 +13,13 @@ cd ~/Programs/octomap_ws
 source ./devel/setup.bash
 roslaunch husky_viz view_robot.launch
 
-ssh husky@192.168.31.66
+ssh husky@192.168.xx.xx
 cd ~/velodyne_ws
 source ./devel/setup.bash
 roslaunch velodyne_pointcloud VLP16_points.launch
 roslaunch xsens_mti_driver xsens_mti_node.launch
 cd octomap_ws/
 source ./devel/setup.bash
-roslaunch husky_navigation hdl_localization_demo.launch
+roslaunch husky_navigation hdl_localization_demo2.launch
 ```
 
